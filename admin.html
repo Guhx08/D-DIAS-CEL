@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0b0c0f">
+<title>Painel · D’DIAS CEL</title>
+<style>
+:root{--bg:#0b0c0f;--c:#15161b;--c2:#1c1d23;--ln:#2a2b32;--tx:#f3f4f6;--mu:#8b8f99;--o:#ff6b00;--o2:#f45b00;color-scheme:dark}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--tx);padding:env(safe-area-inset-top,0px) 0 calc(60px + env(safe-area-inset-bottom,0px))}
+[hidden]{display:none!important}
+button{font-family:inherit;color:inherit}
+.w{max-width:760px;margin:auto;padding:0 18px}
+header{position:sticky;top:0;z-index:5;background:#0b0c0fe6;backdrop-filter:blur(10px);border-bottom:1px solid var(--ln)}
+header .w{display:flex;align-items:center;gap:8px;height:58px}
+.hb{font-size:16px;margin-right:auto}.hb span{color:var(--o)}
+.b{border:0;border-radius:999px;padding:11px 18px;font-weight:700;font-size:13px;cursor:pointer;background:linear-gradient(180deg,var(--o),var(--o2));color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:8px;justify-content:center}
+.b.g{background:var(--c2);border:1px solid var(--ln);color:var(--tx)}
+.b.r{background:#3a1416;color:#ff8a8a;border:1px solid #5b1f23}
+.b.s{padding:7px 12px}
+.b.big{width:100%;padding:17px;font-size:17px;box-shadow:0 10px 30px #ff6b0040}
+.hi{font-size:34px;font-weight:800;margin:26px 0 6px;line-height:1.1}
+.sub{color:var(--mu);font-size:16px;margin-bottom:22px}
+.panel{background:var(--c);border:1px solid var(--ln);border-radius:28px;padding:18px;margin-bottom:14px}
+.sr{display:flex;align-items:center;gap:14px;margin-bottom:14px;flex-wrap:wrap}
+.lg{width:62px;height:62px;border-radius:50%;background:#111;border:1px solid var(--ln);display:grid;place-items:center;font-weight:800;font-size:22px;color:var(--o);position:relative;overflow:hidden;flex:none}
+.lg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sr b{font-size:19px}.su{color:var(--o);font-size:15px;margin-top:2px;word-break:break-all}
+.sr .b{margin-left:auto}
+.pend{background:#2a1608;border:1px solid #7a3a10;border-radius:22px;padding:16px;margin-bottom:14px;display:flex;flex-direction:column;gap:8px;font-size:14px}
+.pend span{color:#e6b48a}.pend .b{align-self:flex-start}
+.sec{font-size:19px;font-weight:700;margin:26px 0 12px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.tile{background:var(--c);border:1px solid var(--ln);border-radius:26px;padding:16px;text-align:left;cursor:pointer;position:relative;min-height:128px;display:flex;flex-direction:column;justify-content:flex-end}
+.tile.on{background:linear-gradient(160deg,var(--o),var(--o2));border-color:var(--o);box-shadow:0 10px 30px #ff6b0040}
+.tile b{font-size:34px;line-height:1;margin-bottom:8px}
+.tile small{color:var(--mu);font-size:14px}.tile.on small{color:#fff}
+.ic{position:absolute;top:14px;right:14px;width:38px;height:38px;border-radius:50%;background:#ffffff14;display:grid;place-items:center;font-size:16px}
+.quick{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.qk{background:var(--c);border:1px solid var(--ln);border-radius:999px;padding:14px;display:flex;align-items:center;gap:12px;font-weight:600;font-size:15px;cursor:pointer;text-decoration:none;color:var(--tx)}
+.qk i{font-style:normal;width:42px;height:42px;border-radius:50%;border:1px solid #7a3a10;background:#2a1608;display:grid;place-items:center;flex:none}
+.vh{display:flex;align-items:center;gap:12px;margin:22px 0 16px}
+.vh h2{font-size:24px}
+.bk{width:42px;height:42px;border-radius:50%;border:1px solid var(--ln);background:var(--c);font-size:24px;cursor:pointer}
+.bar{background:var(--c);border:1px solid var(--ln);border-radius:22px;padding:14px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px;font-size:13px;color:var(--mu)}
+.bar b{color:var(--tx)}
+.it{background:var(--c);border:1px solid var(--ln);border-radius:24px;padding:14px;margin-bottom:12px;display:grid;grid-template-columns:76px 1fr;gap:12px}
+.it.promo{border-color:#ef4444;box-shadow:0 0 0 2px #ef444433}
+.th{width:76px;height:76px;border-radius:14px;background:#f1f1ef;object-fit:contain}
+.f{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+label{font-size:11px;color:var(--mu);font-weight:700;display:block}
+input,select{width:100%;padding:11px 12px;border:1px solid var(--ln);border-radius:14px;font:inherit;font-size:14px;background:#0f1014;color:var(--tx);margin-top:4px}
+input:focus,select:focus{outline:2px solid #ff6b0088;border-color:var(--o)}
+input[type=checkbox]{width:auto;margin:0 6px 0 0}
+.ft{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px;font-size:13px}
+.ft label{font-size:13px;color:var(--tx);display:flex;align-items:center}
+.pm input{border-color:#ef4444;background:#2a1012;font-weight:700}
+#login{max-width:360px;margin:16vh auto;background:var(--c);padding:28px;border-radius:28px;border:1px solid var(--ln);text-align:center}
+#login h2{margin-bottom:6px}#login p.s{color:var(--mu);font-size:14px;margin-bottom:16px}
+#toast{position:fixed;left:50%;bottom:calc(26px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);background:#1c1d23;border:1px solid var(--ln);border-radius:999px;padding:14px 22px;font-weight:600;opacity:0;pointer-events:none;transition:.3s;z-index:20}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+.sc{background:var(--c);border:1px solid var(--ln);border-radius:24px;padding:16px;text-align:center}
+.sc div:first-child{font-size:12px;color:var(--mu);font-weight:700}.sc .n{font-size:32px;font-weight:800;margin:4px 0}.sc small{color:var(--mu);font-size:11px}
+dialog{border:1px solid var(--ln);border-radius:28px;background:var(--c);color:var(--tx);padding:0;width:min(360px,92vw)}
+dialog::backdrop{background:#000a}
+.qm{padding:22px;text-align:center}.qm h3{margin-bottom:14px}
+#qr{background:#fff;border-radius:18px;padding:12px;display:inline-block;color:#111;min-width:120px}#qr img{display:block;width:240px;max-width:100%}
+#qu{color:var(--mu);font-size:13px;margin:12px 0;word-break:break-all}
+.x{float:right;background:none;border:0;font-size:28px;line-height:1;cursor:pointer;color:var(--mu)}
+@media(max-width:600px){.hi{font-size:28px}.it{grid-template-columns:1fr}.th{width:60px;height:60px}.tile b{font-size:28px}.tile{min-height:112px;padding:14px}.ic{width:32px;height:32px;top:10px;right:10px}.sr .b{margin-left:0}}
+</style>
+</head>
+<body>
+<div id="login">
+  <h2>🔒 Painel D’DIAS CEL</h2><p class="s">Digite a senha para continuar</p>
+  <input id="pw" type="password" placeholder="Senha" autofocus>
+  <button class="b" style="width:100%;margin-top:14px" id="ok">Entrar</button>
+  <p id="err" style="color:#ff8a8a;font-size:13px;margin-top:10px"></p>
+</div>
+
+<div id="app" hidden>
+<header><div class="w"><b class="hb">D’DIAS <span>Painel</span></b><button class="b g s" id="dl">⬇ dados.json</button><button class="b g s" id="out">Sair</button></div></header>
+<main class="w">
+
+<section class="v" id="v-home">
+  <h1 class="hi" id="hi">Olá</h1>
+  <p class="sub">Acompanhe sua vitrine e continue adicionando aparelhos.</p>
+  <div class="panel">
+    <div class="sr"><div class="lg" id="lg"></div><div><b id="sn"></b><div class="su" id="su"></div></div><button class="b g" id="qb">▦ QR Code</button></div>
+    <button class="b big" id="shr">⤴ Compartilhar</button>
+  </div>
+  <div class="pend" id="pend" hidden><b>Alterações não publicadas</b><span>Baixe o dados.json e arraste a pasta do site no Netlify (Deploys) para publicar.</span><button class="b" id="dl2">⬇ Baixar dados.json</button></div>
+  <h3 class="sec">Desempenho da vitrine</h3>
+  <div class="tiles">
+    <button class="tile on" data-go="stats"><span class="ic">👁</span><b id="tv">…</b><small>Visitas</small></button>
+    <button class="tile" data-go="stats"><span class="ic">👆</span><b id="tz">…</b><small>Cliques</small></button>
+    <button class="tile" data-go="produtos"><span class="ic">📱</span><b id="ta">0</b><small>Aparelhos</small></button>
+  </div>
+  <h3 class="sec">🏷 Acessos rápidos</h3>
+  <div class="quick">
+    <button class="qk" data-go="produtos"><i>📱</i>Aparelhos</button>
+    <button class="qk" data-go="produtos" data-f="dp"><i>🔥</i>Promoções</button>
+    <button class="qk" data-go="banners"><i>🖼</i>Carrossel</button>
+    <button class="qk" data-go="stats"><i>📊</i>Estatísticas</button>
+    <button class="qk" data-go="loja"><i>⚙</i>Loja e senha</button>
+    <a class="qk" href="index.html?preview=1" target="_blank"><i>👁</i>Ver no site</a>
+  </div>
+</section>
+
+<section class="v" id="v-produtos" hidden>
+  <div class="vh"><button class="bk" data-go="home">‹</button><h2>Aparelhos</h2></div>
+  <div class="bar">
+    <b>🔥 Promoção rápida:</b>
+    <input id="dp" type="number" min="1" max="90" placeholder="% off" style="width:90px;margin:0">
+    <select id="dg" style="width:auto;margin:0"><option value="all">em todos</option><option value="Lacrado">nos Lacrados</option><option value="Semi">nos Semi</option><option value="iPhone">nos iPhones</option></select>
+    <button class="b s" id="ap">Aplicar</button>
+    <button class="b r s" id="rm">Remover promoções</button>
+    <button class="b g s" id="add" style="margin-left:auto">+ Novo aparelho</button>
+  </div>
+  <div id="lp"></div>
+</section>
+
+<section class="v" id="v-banners" hidden>
+  <div class="vh"><button class="bk" data-go="home">‹</button><h2>Carrossel</h2></div>
+  <div class="bar"><button class="b s" id="addb">+ Novo banner</button><span>Os banners ligados passam automaticamente na frente do site.</span></div>
+  <div id="lb"></div>
+</section>
+
+<section class="v" id="v-stats" hidden>
+  <div class="vh"><button class="bk" data-go="home">‹</button><h2>Estatísticas</h2></div>
+  <div class="bar"><button class="b s" id="rs">↻ Atualizar</button><span>Contagem anônima. Seus acessos como administrador não contam.</span></div>
+  <div id="sx"></div>
+</section>
+
+<section class="v" id="v-loja" hidden>
+  <div class="vh"><button class="bk" data-go="home">‹</button><h2>Loja e senha</h2></div>
+  <div class="panel" id="ll"></div>
+  <button class="b r" id="reset">Descartar rascunho e voltar ao publicado</button>
+</section>
+
+</main>
+</div>
+
+<dialog id="qd"><div class="qm"><button class="x" data-close aria-label="Fechar">×</button><h3>QR Code da vitrine</h3><div id="qr"></div><p id="qu"></p><a class="b" id="qdl" download="qrcode-vitrine.gif">⬇ Baixar QR Code</a></div></dialog>
+<div id="toast"></div>
+
+<script>
+const $=i=>document.getElementById(i);
+const COR={'Laranja':'#FF6B00,#ff9a3c','Preto':'#16181d,#3a3f4a','Azul':'#1d4ed8,#60a5fa','Verde':'#0f766e,#14b8a6','Roxo':'#6d28d9,#a78bfa','Vermelho':'#b91c1c,#f87171'};
+const API='https://api.counterapi.dev/v1/';
+let D,tt,sv;
+const ls=(k,v)=>{try{return v===undefined?localStorage.getItem(k):v===null?localStorage.removeItem(k):localStorage.setItem(k,v)}catch(e){}};
+const toast=m=>{const t=$('toast');t.textContent='✓ '+m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),1800)};
+const pend=()=>{$('pend').hidden=!ls('dd_dirty')};
+const save=()=>{ls('dd_draft',JSON.stringify(D));ls('dd_dirty','1');pend();clearTimeout(sv);sv=setTimeout(()=>toast('Alterações salvas!'),600)};
+const esc=s=>String(s??'').replace(/"/g,'&quot;');
+const sha=async s=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)))].map(b=>b.toString(16).padStart(2,'0')).join('');
+const slug=n=>n.toLowerCase().normalize('NFD').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+const siteUrl=()=>location.href.split(/[?#]/)[0].replace(/[^/]*$/,'');
+async function load(){
+  try{const d=ls('dd_draft');if(d)return JSON.parse(d)}catch(e){}
+  if(window.__DADOS)return window.__DADOS;
+  return (await fetch('dados.json?'+Date.now())).json();
+}
+const cnt=async k=>{try{const r=await fetch(API+D.config.cid+'/'+k+'/');if(r.status===404)return 0;if(!r.ok)return null;const j=await r.json();return +(j.count??j.value??0)}catch(e){return null}};
+// ---------- login ----------
+const enter=()=>{try{sessionStorage.setItem('dd_ok','1');localStorage.setItem('dd_nt','1')}catch(e){}
+  $('login').hidden=true;$('app').hidden=false;
+  load().then(d=>{D=d;if(!D.config.cid){D.config.cid='ddias-'+Math.random().toString(36).slice(2,10);save()}draw();show('home')})};
+async function login(){const d=await load().catch(()=>null),h=await sha($('pw').value);
+  if(d&&h===d.config.sh)enter();else $('err').textContent='Senha incorreta'}
+$('ok').onclick=login;$('pw').onkeydown=e=>{if(e.key==='Enter')login()};
+try{if(sessionStorage.getItem('dd_ok'))enter()}catch(e){}
+$('out').onclick=()=>{try{sessionStorage.removeItem('dd_ok')}catch(e){}location.reload()};
+// ---------- navegação ----------
+function show(v){document.querySelectorAll('.v').forEach(e=>e.hidden=e.id!=='v-'+v);scrollTo(0,0);if(v==='stats')stats();if(v==='home')home()}
+document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(!g)return;show(g.dataset.go);if(g.dataset.f)setTimeout(()=>$(g.dataset.f).focus(),60)});
+// ---------- home ----------
+async function home(){
+  const c=D.config;$('hi').textContent='Olá, '+c.nome;$('sn').textContent=c.nome;$('su').textContent=siteUrl().replace(/^https?:\/\//,'').replace(/\/$/,'');
+  $('lg').innerHTML='<span>'+(c.nome||'D')[0]+'</span>'+(c.logo?'<img src="'+esc(c.logo)+'" alt="" onerror="this.remove()">':'');
+  $('ta').textContent=D.produtos.filter(p=>p.on!==false).length;pend();
+  const [v,z]=await Promise.all([cnt('visitas'),cnt('zap')]);
+  $('tv').textContent=v===null?'—':v.toLocaleString('pt-BR');$('tz').textContent=z===null?'—':z.toLocaleString('pt-BR');
+}
+async function share(){const url=siteUrl(),d={title:D.config.nome,text:'Confira o catálogo da '+D.config.nome,url};
+  try{if(navigator.share){await navigator.share(d);return}}catch(e){if(e.name==='AbortError')return}
+  try{await navigator.clipboard.writeText(url);toast('Link copiado!')}catch(e){prompt('Copie o link:',url)}}
+$('shr').onclick=share;
+function qr(){const d=$('qd'),url=siteUrl();$('qu').textContent=url;$('qr').textContent='Gerando…';$('qdl').hidden=true;d.showModal();
+  const mk=()=>{try{const q=qrcode(0,'M');q.addData(url);q.make();const u=q.createDataURL(8,2);$('qr').innerHTML='<img alt="QR Code" src="'+u+'">';$('qdl').href=u;$('qdl').hidden=false}catch(e){$('qr').textContent='Não foi possível gerar o QR agora.'}};
+  if(window.qrcode)return mk();
+  const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js';s.onload=mk;s.onerror=()=>$('qr').textContent='Não foi possível carregar o gerador de QR (sem internet?).';document.head.appendChild(s)}
+$('qb').onclick=qr;
+$('qd').addEventListener('click',e=>{if(e.target===$('qd')||e.target.hasAttribute('data-close'))$('qd').close()});
+// ---------- listas ----------
+function drawP(){
+  $('lp').innerHTML=D.produtos.map((p,i)=>{const pm=p.promo>0&&p.promo<p.p;return `<div class="it ${pm?'promo':''}" data-i="${i}">
+  <div><img class="th" src="${esc(p.img)}" alt=""><label class="b g s" style="margin-top:8px;cursor:pointer">📷 Foto<input type="file" accept="image/*" data-f="${i}" hidden></label></div>
+  <div><div class="f">
+   <div style="grid-column:span 2"><label>Nome</label><input data-p="produtos.${i}.n" value="${esc(p.n)}"></div>
+   <div><label>Detalhes</label><input data-p="produtos.${i}.e" value="${esc(p.e)}"></div>
+   <div><label>Condição</label><select data-p="produtos.${i}.c">${['Lacrado','Semi','Semi · Grade A+'].map(c=>`<option ${c===p.c?'selected':''}>${c}</option>`).join('')}</select></div>
+   <div><label>Preço (R$)</label><input type="number" step="0.01" data-t="n" data-p="produtos.${i}.p" value="${p.p}"></div>
+   <div class="pm"><label>🔥 Preço promocional</label><input type="number" step="0.01" data-t="n" data-p="produtos.${i}.promo" value="${p.promo||''}" placeholder="vazio = sem promo"></div>
+   <div style="grid-column:span 2"><label>Cores (código ou código|Nome, separados por vírgula)</label><input data-t="a" data-p="produtos.${i}.cores" value="${esc((p.cores||[]).join(','))}"></div>
+  </div><div class="ft">
+   <label><input type="checkbox" data-t="b" data-p="produtos.${i}.on" ${p.on!==false?'checked':''}>Visível no site</label>
+   <button class="b g s" data-a="up">↑</button><button class="b g s" data-a="dn">↓</button><button class="b r s" data-a="del" style="margin-left:auto">Excluir</button>
+  </div></div></div>`}).join('')}
+function drawB(){
+  $('lb').innerHTML=D.banners.map((b,i)=>`<div class="it" style="grid-template-columns:1fr" data-i="${i}"><div class="f">
+  <div style="grid-column:span 2"><label>Título</label><input data-p="banners.${i}.t" value="${esc(b.t)}"></div>
+  <div style="grid-column:span 2"><label>Subtítulo</label><input data-p="banners.${i}.s" value="${esc(b.s)}"></div>
+  <div><label>Texto do botão (vazio = sem botão)</label><input data-p="banners.${i}.b" value="${esc(b.b)}"></div>
+  <div><label>Cor</label><select data-p="banners.${i}.bg">${Object.entries(COR).map(([n,v])=>`<option value="${v}" ${v===b.bg?'selected':''}>${n}</option>`).join('')}</select></div>
+  <div style="grid-column:span 2"><label>Mensagem do WhatsApp ao clicar (vazio = vai para o catálogo)</label><input data-p="banners.${i}.q" value="${esc(b.q)}"></div>
+  <div style="grid-column:span 2"><label>Imagem de fundo (opcional, link ou caminho)</label><input data-p="banners.${i}.img" value="${esc(b.img)}"></div>
+  </div><div class="ft"><label><input type="checkbox" data-t="b" data-p="banners.${i}.on" ${b.on?'checked':''}>Ligado</label>
+  <button class="b g s" data-a="up">↑</button><button class="b g s" data-a="dn">↓</button><button class="b r s" data-a="del" style="margin-left:auto">Excluir</button></div></div>`).join('')}
+function drawL(){const c=D.config;$('ll').innerHTML=[['nome','Nome da loja'],['cidade','Cidade'],['wa','WhatsApp (com 55 + DDD, só números)'],['ig','Instagram (sem @)'],['logo','Logo (link ou caminho)']].map(([k,l])=>`<div style="margin-bottom:12px"><label>${l}</label><input data-p="config.${k}" value="${esc(c[k])}"></div>`).join('')+'<div style="margin-top:16px"><label>Nova senha do painel (vazio = manter a atual)</label><input id="nsw" type="password" autocomplete="new-password"></div>'}
+function draw(){drawP();drawB();drawL()}
+// ---------- edição genérica ----------
+$('app').addEventListener('input',e=>{const t=e.target,p=t.dataset.p;if(!p)return;
+  const k=p.split('.');let o=D;for(let j=0;j<k.length-1;j++)o=o[k[j]];
+  let v=t.type==='checkbox'?t.checked:t.value;
+  if(t.dataset.t==='n')v=parseFloat(v)||0;if(t.dataset.t==='a')v=v.split(',').map(s=>s.trim()).filter(Boolean);
+  o[k[k.length-1]]=v;save();
+  if(/\.(promo|p)$/.test(p)){const it=t.closest('.it'),q=D.produtos[it.dataset.i];it.classList.toggle('promo',q.promo>0&&q.promo<q.p)}});
+$('app').addEventListener('click',e=>{const a=e.target.dataset.a;if(!a)return;const it=e.target.closest('.it'),i=+it.dataset.i,L=it.parentNode.id==='lp'?D.produtos:D.banners;
+  if(a==='del'){if(!confirm('Excluir este item?'))return;L.splice(i,1)}
+  else{const j=a==='up'?i-1:i+1;if(j<0||j>=L.length)return;[L[i],L[j]]=[L[j],L[i]]}
+  save();draw()});
+$('app').addEventListener('change',e=>{const f=e.target.dataset.f;if(f===undefined||e.target.type!=='file'||!e.target.files[0])return;
+  const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const s=Math.min(1,560/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*s;c.height=im.height*s;const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);x.drawImage(im,0,0,c.width,c.height);D.produtos[f].img=c.toDataURL('image/jpeg',.82);save();drawP()};im.src=r.result};r.readAsDataURL(e.target.files[0])});
+$('ll').addEventListener('change',async e=>{if(e.target.id==='nsw'&&e.target.value){D.config.sh=await sha(e.target.value);e.target.value='';save();alert('Senha alterada! Ela passa a valer no site depois que você baixar e publicar o dados.json.')}});
+$('add').onclick=()=>{D.produtos.unshift({n:'Novo aparelho',e:'',c:'Semi',p:0,promo:0,img:'',cores:[],on:true});save();drawP()};
+$('addb').onclick=()=>{D.banners.push({on:true,t:'Nova promoção',s:'Descreva a oferta aqui',b:'Quero aproveitar',q:'Olá! Vi a promoção no site e tenho interesse.',bg:COR.Laranja,img:''});save();drawB()};
+$('ap').onclick=()=>{const d=parseFloat($('dp').value),g=$('dg').value;if(!(d>0&&d<=90))return alert('Informe um desconto entre 1 e 90');
+  D.produtos.forEach(p=>{if(g==='all'||p.c.indexOf(g)===0||(g==='iPhone'&&/^iPhone/.test(p.n)))p.promo=Math.round(p.p*(1-d/100)*100)/100});save();drawP()};
+$('rm').onclick=()=>{D.produtos.forEach(p=>p.promo=0);save();drawP()};
+$('reset').onclick=()=>{if(confirm('Descartar todas as alterações não publicadas?')){ls('dd_draft',null);ls('dd_dirty',null);delete window.__DADOS;location.reload()}};
+const dl=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(D,null,1)],{type:'application/json'}));a.download='dados.json';a.click();ls('dd_dirty',null);pend();toast('dados.json baixado!')};
+$('dl').onclick=dl;$('dl2').onclick=dl;
+// ---------- estatísticas ----------
+async function stats(){
+  const el=$('sx');el.innerHTML='<p style="padding:20px;color:var(--mu)">Carregando…</p>';
+  const ds=[...Array(7)].map((_,i)=>{const d=new Date();d.setDate(d.getDate()-i);return d}),dk=d=>d.toLocaleDateString('sv-SE').replace(/-/g,'');
+  const all=await Promise.all([Promise.all(['visitantes','visitas','zap','pedidos','interesse'].map(cnt)),Promise.all(ds.map(d=>cnt('dv-'+dk(d)))),Promise.all(ds.map(d=>cnt('dz-'+dk(d)))),Promise.all(D.produtos.map(p=>cnt('i-'+slug(p.n))))]);
+  const [T,V,Z,I]=all;
+  if(all.flat().every(x=>x===null))return el.innerHTML='<div class="bar">Não foi possível ler as estatísticas agora (serviço de contagem indisponível ou bloqueado pelo navegador). Tente novamente em instantes.</div>';
+  const n=x=>x===null?'—':x.toLocaleString('pt-BR'),mx=Math.max(1,...V.map(x=>x||0),...Z.map(x=>x||0));
+  const card=(t,v,s)=>`<div class="sc"><div>${t}</div><div class="n">${v}</div><small>${s}</small></div>`;
+  const tx=T[1]?((T[2]||0)/T[1]).toFixed(1).replace('.',','):'0';
+  el.innerHTML=`<div class="f" style="margin-bottom:12px">${card('👥 Pessoas que entraram',n(T[0]),'visitantes únicos (por aparelho)')}${card('🌐 Acessos',n(T[1]),'visitas ao site')}${card('💬 Cliques no WhatsApp',n(T[2]),tx+' cliques por acesso')}${card('📦 Pedidos enviados',n(T[3]),'pelo formulário "Tenho interesse"')}</div>
+  <div class="bar" style="display:block"><b>Últimos 7 dias</b> <small>(azul = acessos, laranja = cliques)</small>${ds.map((d,i)=>`<div style="display:grid;grid-template-columns:80px 1fr;gap:8px;align-items:center;margin-top:10px"><span>${d.toLocaleDateString('pt-BR',{weekday:'short',day:'2-digit',month:'2-digit'})}</span><div><div style="background:#6366f1;height:8px;border-radius:4px;width:${(V[i]||0)/mx*100}%;min-width:2px"></div><div style="background:var(--o);height:8px;border-radius:4px;margin-top:3px;width:${(Z[i]||0)/mx*100}%;min-width:2px"></div><small>${n(V[i])} acessos · ${n(Z[i])} cliques</small></div></div>`).join('')}</div>
+  <div class="bar" style="display:block"><b>Aparelhos mais clicados ("Tenho interesse")</b>${D.produtos.map((p,i)=>[p.n,I[i]||0]).filter(x=>x[1]>0).sort((a,b)=>b[1]-a[1]).slice(0,8).map(x=>`<div style="display:flex;justify-content:space-between;margin-top:10px;color:var(--tx)"><span>${x[0]}</span><b>${x[1]}</b></div>`).join('')||'<p style="margin-top:8px">Ainda sem cliques.</p>'}</div>`}
+$('rs').onclick=stats;
+</script>
+</body>
+</html>

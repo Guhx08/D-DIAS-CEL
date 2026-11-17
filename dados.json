@@ -1,0 +1,256 @@
+{
+ "config": {
+  "cid": "ddias-ee7c2e39",
+  "nome": "D’DIAS CEL",
+  "cidade": "Osasco - SP",
+  "wa": "5511964013198",
+  "ig": "d.diascel",
+  "logo": "https://daqjvsyrnfzyttyrzlvq.supabase.co/storage/v1/object/public/istore-images-new/ac263e38-0382-4f72-baa7-ce3be636e6e1/logos/16ba01801b962e009f5ba27e4058f8bc08792455958d4c3ca1ccd06c375307ea.jpeg",
+  "sh": "a099b301ecf2d474c127ea92e5d8ade7b5ea53529388b870b431a7acd26729c0"
+ },
+ "banners": [
+  {
+   "on": true,
+   "t": "iPhone 18 Pro Max chegou!",
+   "s": "Lacrado, com garantia e entrega rápida. A partir de R$ 9.050,00.",
+   "b": "Quero o meu",
+   "q": "Olá! Tenho interesse no iPhone 18 Pro Max lacrado.",
+   "bg": "#FF6B00,#ff9a3c",
+   "img": ""
+  },
+  {
+   "on": true,
+   "t": "Seminovos revisados com garantia",
+   "s": "Procedência, teste completo e parcelamento no cartão.",
+   "b": "Ver seminovos",
+   "q": "",
+   "bg": "#16181d,#3a3f4a",
+   "img": ""
+  },
+  {
+   "on": true,
+   "t": "Entrega rápida em Osasco e região",
+   "s": "Chame no WhatsApp e receba no mesmo dia.",
+   "b": "Falar agora",
+   "q": "Olá! Gostaria de saber sobre entrega.",
+   "bg": "#0f766e,#14b8a6",
+   "img": ""
+  }
+ ],
+ "produtos": [
+  {
+   "n": "iPhone 18 Pro Max",
+   "e": "256GB · 4 cores",
+   "c": "Lacrado",
+   "p": 9050,
+   "promo": 0,
+   "img": "imagens/iphone-18-pro-max.jpg",
+   "cores": [
+    "#b8aea4|Bege",
+    "#4a90e2|Azul",
+    "#1c1c1e|Preto",
+    "#7a2a35|Vinho"
+   ],
+   "on": true
+  },
+  {
+   "n": "iPhone 17 Pro Max",
+   "e": "256GB · 1 cor",
+   "c": "Semi",
+   "p": 7590,
+   "promo": 0,
+   "img": "imagens/iphone-17-pro-max.jpg",
+   "cores": [
+    "#b8aea4|Bege"
+   ],
+   "on": true
+  },
+  {
+   "n": "iPhone 17 Pro",
+   "e": "256GB · 1 cor",
+   "c": "Semi",
+   "p": 6500,
+   "promo": 0,
+   "img": "imagens/iphone-17-pro.jpg",
+   "cores": [
+    "#e0752f|Laranja"
+   ],
+   "on": true
+  },
+  {
+   "n": "iPhone 17",
+   "e": "256GB · 1 cor",
+   "c": "Semi",
+   "p": 5000,
+   "promo": 0,
+   "img": "imagens/iphone-17.jpg",
+   "cores": [
+    "#a8c5ae|Verde"
+   ],
+   "on": true
+  },
+  {
+   "n": "iPhone 16 Pro Max",
+   "e": "256GB · 2 cores",
+   "c": "Semi",
+   "p": 5150,
+   "promo": 0,
+   "img": "imagens/iphone-16-pro-max.jpg",
+   "cores": [
+    "#b8aea4|Bege",
+    "#eeeeee|Branco"
+   ],
+   "on": true
+  },
+  {
+   "n": "iPhone 16 Pro",
+   "e": "2 cores",
+   "c": "Semi",
+   "p": 4400,
+   "promo": 0,
+   "img": "imagens/iphone-16-pro.jpg",
+   "cores": [
+    "#e6cf9f|Dourado",
+    "#b8aea4|Bege"
+   ],
+   "on": true
+  },
+  {
+   "n": "iPhone 15 Pro Max",
+   "e": "256GB · 3 cores",
+   "c": "Semi",
+   "p": 4280,
+   "promo": 0,
+   "img": "imagens/iphone-15-pro-max.jpg",
+   "cores": [
+    "#eeeeee|Branco",
+    "#4a90e2|Azul",
+    "#b8aea4|Bege"
+   ],
+   "on": true
+  },
+  {
+   "n": "iPhone 15 Pro",
+   "e": "1 cor",
+   "c": "Semi",
+   "p": 3650,
+   "promo": 0,
+   "img": "imagens/iphone-15-pro.jpg",
+   "cores": [
+    "#4a90e2|Azul"
+   ],
+   "on": true
+  },
+  {
+   "n": "iPhone 15 Plus",
+   "e": "1 cor",
+   "c": "Semi",
+   "p": 3050,
+   "promo": 0,
+   "img": "imagens/iphone-15-plus.jpg",
+   "cores": [
+    "#4a90e2|Azul"
+   ],
+   "on": true
+  },
+  {
+   "n": "iPhone 15",
+   "e": "1 cor",
+   "c": "Semi",
+   "p": 2950,
+   "promo": 0,
+   "img": "imagens/iphone-15.jpg",
+   "cores": [
+    "#1c1c1e|Preto"
+   ],
+   "on": true
+  },
+  {
+   "n": "iPhone 14 Pro Max",
+   "e": "2 cores",
+   "c": "Semi",
+   "p": 3450,
+   "promo": 0,
+   "img": "imagens/iphone-14-pro-max.jpg",
+   "cores": [
+    "#1c1c1e|Preto",
+    "#eeeeee|Branco"
+   ],
+   "on": true
+  },
+  {
+   "n": "iPhone 14 Pro",
+   "e": "256GB · 1 cor",
+   "c": "Semi",
+   "p": 3150,
+   "promo": 0,
+   "img": "imagens/iphone-14-pro.jpg",
+   "cores": [
+    "#e6cf9f|Dourado"
+   ],
+   "on": true
+  },
+  {
+   "n": "iPhone 14",
+   "e": "1 cor",
+   "c": "Semi",
+   "p": 2230,
+   "promo": 0,
+   "img": "imagens/iphone-14.jpg",
+   "cores": [
+    "#8a8a8a|Cinza"
+   ],
+   "on": true
+  },
+  {
+   "n": "iPhone 13",
+   "e": "2 cores",
+   "c": "Semi · Grade A+",
+   "p": 1800,
+   "promo": 0,
+   "img": "imagens/iphone-13.jpg",
+   "cores": [
+    "#1c1c1e|Preto",
+    "#4a90e2|Azul"
+   ],
+   "on": true
+  },
+  {
+   "n": "iPhone 12",
+   "e": "1 cor",
+   "c": "Semi · Grade A+",
+   "p": 1790,
+   "promo": 0,
+   "img": "imagens/iphone-12.jpg",
+   "cores": [
+    "#1c1c1e|Preto"
+   ],
+   "on": true
+  },
+  {
+   "n": "iPhone Duo",
+   "e": "512GB · 2 cores",
+   "c": "Lacrado",
+   "p": 15500,
+   "promo": 0,
+   "img": "imagens/iphone-duo.jpg",
+   "cores": [
+    "#f0f0f0|Branco",
+    "#1c1c1e|Preto"
+   ],
+   "on": true
+  },
+  {
+   "n": "Carregador USB-C – 20W",
+   "e": "1 cor",
+   "c": "Lacrado",
+   "p": 185.99,
+   "promo": 0,
+   "img": "imagens/carregador-usb-c-20w.jpg",
+   "cores": [
+    "#cccccc|Branco"
+   ],
+   "on": true
+  }
+ ]
+}
