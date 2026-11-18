@@ -91,6 +91,20 @@ dialog::backdrop{background:#0009}
 .op i{width:14px;height:14px;border-radius:50%;border:1px solid #0003}
 .md input{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:12px;font:inherit;font-size:14px}
 .x{float:right;background:none;border:0;font-size:28px;line-height:1;cursor:pointer;color:var(--mut)}
+.dt{background:#f7f7f5;border-radius:14px;padding:4px 14px;margin:10px 0}
+.dr{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:13px}
+.dr:last-child{border:0}.dr span{color:var(--mut)}.dr b{text-align:right}
+.bt{height:8px;border-radius:6px;background:#e5e5e0;overflow:hidden;margin:-2px 0 10px}.bt b{display:block;height:100%}
+.rl h2{font-size:22px;margin:10px 0 6px}.rl p{color:var(--mut);font-size:14px;margin-bottom:8px}
+.rl input{padding:11px;border:1px solid var(--line);border-radius:12px;margin:8px 0;width:100%;max-width:320px;display:block;font:inherit}
+.rr{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:16px;padding:10px;margin-bottom:10px}
+.rr img{width:56px;height:56px;object-fit:contain;background:#f1f1ef;border-radius:10px}
+.ri{flex:1;display:flex;flex-direction:column;min-width:0}.ri small{color:var(--mut);font-size:12px}
+.qt{width:68px;padding:9px;border:1px solid var(--line);border-radius:10px;font-size:15px}
+.rbar{position:sticky;bottom:0;background:#fffffff2;border:1px solid var(--line);border-radius:16px;padding:12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:12px 0 40px}
+.rbar input{flex:1;min-width:150px;padding:10px;border:1px solid var(--line);border-radius:10px;font:inherit}
+.err{color:#b91c1c;font-size:13px;width:100%}
+.rvb{display:flex;flex-direction:column;gap:6px;background:#fff7ed;border:1px solid #fed7aa;border-radius:16px;padding:14px;margin-top:12px;font-size:13px;color:#7a4a1e}.rvb[hidden]{display:none}.rvb b{font-size:15px;color:var(--ink)}.rvb .btn{align-self:flex-start;margin-top:4px}
 button{font-family:inherit}
 @media(max-width:700px){dialog{margin:auto 0 0;width:100vw;max-width:100vw;border-radius:20px 20px 0 0}}
 @media(max-width:700px){.sl{min-height:280px}.sc{padding:30px 22px 44px}.sc h2{font-size:26px}.sc p{font-size:14px}.ar{display:none}.hero .acts{margin-left:0;width:100%}.perks{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr);gap:12px}.info h3{font-size:14px}.info strong{font-size:17px}.brand span{font-size:14px}}
@@ -114,12 +128,14 @@ button{font-family:inherit}
 </div></section>
 
 <main class="wrap" id="catalogo">
-  <div class="perks">
+  <div class="row" id="tbs" style="margin-top:18px"><button class="chip on" data-t="v">📱 Catálogo</button><button class="chip" data-t="r">🏷 Revenda</button></div>
+  <div class="rvb" id="rvb" hidden><b>🏷 Revenda de aparelhos de outras pessoas</b><span>Aparelhos de particulares vendidos com a nossa intermediação. Quer vender o seu iPhone? A gente anuncia para você.</span><button class="btn" id="sell">Quero revender o meu</button></div>
+  <div class="perks" id="perks">
     <div><b>Garantia</b>Aparelhos testados e revisados</div>
     <div><b>Entrega rápida</b>Atendimento ágil em Osasco e região</div>
     <div><b>Pix ou cartão</b>Pagamento facilitado</div>
   </div>
-  <div class="tools">
+  <div class="tools" id="tools">
     <div class="row" id="cats">
       <button class="chip on" data-v="all">Todos</button>
       <button class="chip" data-v="iphone">iPhone</button>
@@ -138,30 +154,38 @@ button{font-family:inherit}
   </div>
   <p class="count" id="count"></p>
   <div class="grid" id="grid"></div>
-  <div class="more"><button class="btn out" id="more">Carregar mais aparelhos</button></div>
+  <div class="more" id="mor"><button class="btn out" id="more">Carregar mais aparelhos</button></div>
 </main>
 
 <footer><div class="wrap">
   <b id="nomeF"></b>
   <div class="pay"><span>Pix</span><span>Cartão</span></div>
   <div>© 2026 Todos os direitos reservados. Preços, taxas, condições de pagamento e disponibilidade podem sofrer alterações sem aviso prévio.</div>
-  <a href="#" id="adm" style="color:#8b919b;font-size:12px">🔒 Área do administrador</a>
+  <a href="admin.html" id="adm" style="color:#8b919b;font-size:12px">🔒 Área do administrador</a>
 </div></footer>
 
 <a class="fab" data-wa="Olá! Vim pela vitrine e gostaria de tirar uma dúvida. 🙌" href="#" aria-label="WhatsApp"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm4.600 13.800c-.2.6-1.200 1.100-1.700 1.200-.5 0-1 .2-3.200-.7-2.700-1.100-4.400-3.800-4.600-4-.1-.2-1.100-1.400-1.100-2.700s.7-1.900 1-2.200c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.200.1.400 0 .5l-.4.600c-.2.200-.3.400-.1.600.2.300.8 1.200 1.600 2 1.100 1 2 1.300 2.300 1.400.3.100.5.100.6-.1l.9-1c.2-.3.400-.2.600-.1l1.900.9c.3.100.5.200.6.300.1.200.1.700-.1 1.300z"/></svg></a>
 
 <dialog id="md"></dialog>
 <script>
-var $=i=>document.getElementById(i),D,S={cat:'all',c:'all',sort:'rel',q:'',n:8},cur=0,tm;
+var $=i=>document.getElementById(i),D,S={tab:'v',cat:'all',c:'all',sort:'rel',q:'',n:8},cur=0,tm;
 var PH='data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#f1f1ef"/><rect x="68" y="35" width="64" height="130" rx="14" fill="none" stroke="#bbb" stroke-width="5"/></svg>');
 var fb=i=>{i.onerror=null;i.src=PH};
 var brl=v=>v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
 var pr=p=>p.promo>0&&p.promo<p.p?p.promo:p.p;
 var wa=t=>'https://wa.me/'+D.config.wa+'?text='+encodeURIComponent(t);
-function load(){
-  if(window.__DADOS)return Promise.resolve(window.__DADOS);
-  try{var d=/preview/.test(location.search)&&localStorage.getItem('dd_draft');if(d)return Promise.resolve(JSON.parse(d))}catch(e){}
-  return fetch('dados.json?'+Date.now()).then(r=>r.json());
+async function load(){
+  var base=window.__DADOS||await fetch('dados.json?'+Date.now()).then(r=>r.json()),sb=base.config.sb;
+  if(sb&&sb.key&&sb.url&&!/COLE/.test(sb.key)){
+    try{
+      var H={apikey:sb.key,Authorization:'Bearer '+sb.key},g=p=>fetch(sb.url+'/rest/v1/'+p,{headers:H}).then(r=>{if(!r.ok)throw 0;return r.json()});
+      var a=await Promise.all([g('produtos?select=*&ativo=eq.true&order=ordem.asc'),g('banners?select=*&ativo=eq.true&order=ordem.asc'),g('config?select=*&id=eq.1')]),c=a[2][0]||{};
+      return{_sb:1,config:{nome:c.nome||base.config.nome,cidade:c.cidade||base.config.cidade,wa:c.wa||base.config.wa,ig:c.ig||base.config.ig,logo:c.logo||base.config.logo,sb:sb},
+        banners:a[1].map(b=>({on:true,t:b.titulo,s:b.subtitulo,b:b.botao,q:b.mensagem,bg:b.cor,img:b.img})),
+        produtos:a[0].map(p=>({id:p.id,n:p.nome,e:p.detalhes,c:p.condicao,p:+p.preco,promo:+p.promo,img:p.img,cores:p.cores||[],arm:p.armazenamento,bat:p.bateria,gr:p.grade,gar:p.garantia,ac:p.acompanha,ob:p.obs,or:p.origem,on:true}))};
+    }catch(e){}
+  }
+  return base;
 }
 function head(){
   var c=D.config;document.title=c.nome+' | iPhones com garantia em '+c.cidade;
@@ -187,14 +211,14 @@ function banners(){
   el.ontouchend=e=>{var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40){go(cur+(dx<0?1:-1));auto()}};
 }
 function render(){
-  var l=D.produtos.filter(p=>p.on!==false&&(S.cat==='all'||S.cat===(/^iPhone/.test(p.n)?'iphone':'acc'))&&(S.c==='all'||(S.c==='promo'?pr(p)<p.p:p.c.indexOf(S.c)===0))&&p.n.toLowerCase().includes(S.q));
+  var l=D.produtos.filter(p=>p.on!==false&&((p.or==='revenda')===(S.tab==='r'))&&(S.cat==='all'||S.cat===(/^iPhone/.test(p.n)?'iphone':'acc'))&&(S.c==='all'||(S.c==='promo'?pr(p)<p.p:p.c.indexOf(S.c)===0))&&p.n.toLowerCase().includes(S.q));
   if(S.sort==='asc')l.sort((a,b)=>pr(a)-pr(b));
   if(S.sort==='desc')l.sort((a,b)=>pr(b)-pr(a));
   $('count').textContent='Exibindo '+Math.min(S.n,l.length)+' de '+l.length+' produtos';
   var g=$('grid');g.innerHTML=l.length?'':'<div class="empty">Nenhum produto encontrado. Chame no WhatsApp e consultamos para você!</div>';
   l.slice(0,S.n).forEach(p=>{
-    var v=pr(p),pm=v<p.p,d=document.createElement('article');d.className='card';
-    d.innerHTML='<div class="ph"><img loading="lazy" alt="'+p.n+'" src="'+(p.img||PH)+'"><span class="tag '+(p.c==='Lacrado'?'l':'')+'">'+p.c+'</span>'+(pm?'<span class="off">-'+Math.round((1-v/p.p)*100)+'%</span>':'')+'</div><div class="info"><h3>'+p.n+'</h3><small>'+p.e+'</small><em>'+(pm?'De <s>'+brl(p.p)+'</s> por':'A partir de')+'</em><strong class="'+(pm?'pm':'')+'">'+brl(v)+'</strong>'+((p.cores||[]).length?'<div class="sw">'+p.cores.map(c=>{c=cor(c);return '<i style="background:'+c.h+'" title="'+c.n+'"></i>'}).join('')+'</div>':'')+'<button class="btn" data-o="'+D.produtos.indexOf(p)+'">Tenho interesse</button></div>';
+    var v=pr(p),pm=v<p.p,d=document.createElement('article');d.className='card';d.dataset.o=D.produtos.indexOf(p);d.style.cursor='pointer';
+    d.innerHTML='<div class="ph"><img loading="lazy" alt="'+p.n+'" src="'+(p.img||PH)+'"><span class="tag '+(p.c==='Lacrado'?'l':'')+'">'+(p.or==='revenda'?'🏷 ':'')+p.c+'</span>'+(pm?'<span class="off">-'+Math.round((1-v/p.p)*100)+'%</span>':'')+'</div><div class="info"><h3>'+p.n+'</h3><small>'+p.e+'</small><em>'+(pm?'De <s>'+brl(p.p)+'</s> por':'A partir de')+'</em><strong class="'+(pm?'pm':'')+'">'+brl(v)+'</strong>'+((p.cores||[]).length?'<div class="sw">'+p.cores.map(c=>{c=cor(c);return '<i style="background:'+c.h+'" title="'+c.n+'"></i>'}).join('')+'</div>':'')+'<button class="btn" data-o="'+D.produtos.indexOf(p)+'">Tenho interesse</button></div>';
     d.querySelector('img').onerror=function(){fb(this)};g.appendChild(d);
   });
   $('more').parentNode.style.display=l.length>S.n?'flex':'none';
@@ -202,45 +226,60 @@ function render(){
 var CN={'#b8aea4':'Bege','#4a90e2':'Azul','#1c1c1e':'Preto','#7a2a35':'Vinho','#eeeeee':'Branco','#f0f0f0':'Branco','#e6cf9f':'Dourado','#e0752f':'Laranja','#a8c5ae':'Verde','#8a8a8a':'Cinza','#888888':'Cinza'};
 var cor=c=>{var a=String(c).split('|');return{h:a[0],n:a[1]||CN[a[0].toLowerCase()]||'Cor'}};
 function order(p){
-  hit('interesse');hit('i-'+slug(p.n));
-  var v=pr(p),pm=v<p.p,cs=(p.cores||[]).map(cor),m=$('md'),O={cor:cs.length===1?cs[0].n:'',pg:'Pix',en:'Receber em casa'},nm='';
+  ev('interesse',p.n);
+  var v=pr(p),pm=v<p.p,cs=(p.cores||[]).map(cor),m=$('md'),O={cor:cs.length===1?cs[0].n:'',ob:'',pg:'Pix',en:'Receber em casa'},nm='';
   try{nm=localStorage.getItem('dd_nome')||''}catch(e){}
   var g=(k,a)=>'<div class="opts" data-g="'+k+'">'+a.map(x=>'<button type="button" class="op'+(O[k]===x.n?' on':'')+'" data-v="'+x.n+'">'+(x.h?'<i style="background:'+x.h+'"></i>':'')+x.n+'</button>').join('')+'</div>';
-  m.innerHTML='<div class="md"><button class="x" data-x aria-label="Fechar">×</button><div class="mh"><img src="'+(p.img||PH)+'" alt=""><div><h3>'+p.n+'</h3><small>'+p.c+(p.e?' · '+p.e:'')+'</small><br><strong>'+brl(v)+'</strong>'+(pm?' <s>'+brl(p.p)+'</s>':'')+'</div></div>'
+  var row=(k,x)=>x?'<div class="dr"><span>'+k+'</span><b>'+x+'</b></div>':'',semi=p.c.indexOf('Semi')===0;
+  var det=row('Condição',p.c)+row('Detalhes',p.e)+row('Armazenamento',p.arm)
+   +(p.bat?'<div class="dr"><span>Saúde da bateria</span><b>'+p.bat+'%</b></div><div class="bt"><b style="width:'+p.bat+'%;background:'+(p.bat>=90?'#16a34a':p.bat>=80?'#f59e0b':'#ef4444')+'"></b></div>':(semi?row('Saúde da bateria','informamos no atendimento'):''))
+   +row('Estado / grade',p.gr)+row('Acompanha',p.ac)+row('Garantia',p.gar)+row('Observações',p.ob);
+  m.innerHTML='<div class="md"><button class="x" data-x aria-label="Fechar">×</button><div class="mh"><img src="'+(p.img||PH)+'" alt=""><div><h3>'+p.n+'</h3><strong>'+brl(v)+'</strong>'+(pm?' <s>'+brl(p.p)+'</s>':'')+'</div></div><div class="dt">'+det+'</div>'
    +(cs.length?'<label>Cor</label>'+g('cor',cs):'')
-   +'<label>Pagamento</label>'+g('pg',[{n:'Pix'},{n:'Cartão'}])
-   +'<label>Entrega</label>'+g('en',[{n:'Receber em casa'},{n:'Retirar na loja'}])
-   +'<div id="bf"><label>Bairro / endereço (opcional)</label><input id="bai" placeholder="Ex.: Centro, Osasco"></div>'
+   +'<label>O que você deseja?</label>'+g('ob',[{n:'Só um orçamento'},{n:'Quero comprar'}])
+   +'<div id="cp" hidden><label>Pagamento</label>'+g('pg',[{n:'Pix'},{n:'Cartão'}])+'<label>Entrega</label>'+g('en',[{n:'Receber em casa'},{n:'Retirar na loja'}])
+   +'<div id="bf"><label>Bairro / endereço (opcional)</label><input id="bai" placeholder="Ex.: Centro, Osasco"></div></div>'
    +'<label>Seu nome</label><input id="nom" value="'+nm.replace(/"/g,'&quot;')+'" placeholder="Como podemos te chamar?">'
    +'<label>Observação (opcional)</label><input id="obs" placeholder="Ex.: tenho um aparelho para dar na troca">'
-   +'<p id="er" style="color:#b91c1c;font-size:13px;margin-top:10px"></p><button class="btn" id="go" style="width:100%;justify-content:center;margin-top:8px">Enviar pedido pelo WhatsApp</button></div>';
+   +'<p id="er" style="color:#b91c1c;font-size:13px;margin-top:10px"></p><button class="btn" id="go" style="width:100%;justify-content:center;margin-top:8px">Enviar pelo WhatsApp</button></div>';
   m.onclick=e=>{var t=e.target;
     if(t===m||t.hasAttribute('data-x'))return m.close();
     var b=t.closest('.op');
-    if(b){var gr=b.parentNode.dataset.g;O[gr]=b.dataset.v;b.parentNode.querySelectorAll('.op').forEach(x=>x.classList.toggle('on',x===b));if(gr==='en')$('bf').hidden=O.en!=='Receber em casa'}
+    if(b){var gr=b.parentNode.dataset.g;O[gr]=b.dataset.v;b.parentNode.querySelectorAll('.op').forEach(x=>x.classList.toggle('on',x===b));
+      if(gr==='ob')$('cp').hidden=O.ob!=='Quero comprar';
+      if(gr==='en')$('bf').hidden=O.en!=='Receber em casa'}
     if(t.id==='go'){var n=$('nom').value.trim();
       if(cs.length>1&&!O.cor)return $('er').textContent='Escolha a cor do aparelho.';
+      if(!O.ob)return $('er').textContent='Escolha: só um orçamento ou quero comprar.';
       if(!n)return $('er').textContent='Informe seu nome.';
       try{localStorage.setItem('dd_nome',n)}catch(x){}
-      var bai=$('bai').value.trim(),ob=$('obs').value.trim();
-      var L=['🛒 *NOVO PEDIDO — '+D.config.nome+'*','','📱 *Produto:* '+p.n,'🔹 *Condição:* '+p.c,p.e?'💾 *Detalhes:* '+p.e:null,O.cor?'🎨 *Cor:* '+O.cor:null,'💰 *Valor:* '+brl(v)+(pm?' (promoção, de '+brl(p.p)+')':''),'💳 *Pagamento:* '+O.pg,'🚚 *Entrega:* '+O.en+(O.en==='Receber em casa'&&bai?' — '+bai:''),'👤 *Nome:* '+n,ob?'📝 *Obs.:* '+ob:null,'','Aguardo a confirmação de disponibilidade. 🙌'];
-      zap();hit('pedidos');window.open(wa(L.filter(x=>x!==null).join('\n')),'_blank');m.close()}};
+      var buy=O.ob==='Quero comprar',bai=$('bai').value.trim(),ob=$('obs').value.trim();
+      var L=[buy?'🛒 *NOVO PEDIDO — '+D.config.nome+'*':'💬 *PEDIDO DE ORÇAMENTO — '+D.config.nome+'*','','🎯 *Objetivo:* '+(buy?'Comprar o aparelho':'Apenas orçamento'),p.or==='revenda'?'🏷 *Origem:* Revenda (aparelho de terceiros)':null,'📱 *Produto:* '+p.n,'🔹 *Condição:* '+p.c,p.e?'💾 *Detalhes:* '+p.e:null,p.bat?'🔋 *Bateria:* '+p.bat+'%':null,O.cor?'🎨 *Cor:* '+O.cor:null,'💰 *Valor:* '+brl(v)+(pm?' (promoção, de '+brl(p.p)+')':''),buy?'💳 *Pagamento:* '+O.pg:null,buy?'🚚 *Entrega:* '+O.en+(O.en==='Receber em casa'&&bai?' — '+bai:''):null,'👤 *Nome:* '+n,ob?'📝 *Obs.:* '+ob:null,'',buy?'Aguardo a confirmação de disponibilidade. 🙌':'Pode me passar um orçamento, por favor? 🙌'];
+      zap();ev('pedido',p.n,buy?'compra':'orcamento');window.open(wa(L.filter(x=>x!==null).join('\n')),'_blank');m.close()}};
   m.showModal();
 }
 $('grid').addEventListener('click',e=>{var b=e.target.closest('[data-o]');if(b)order(D.produtos[b.dataset.o])});
-var sha=async s=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)))].map(b=>b.toString(16).padStart(2,'0')).join('');
-$('adm').onclick=e=>{e.preventDefault();var m=$('md');
-  m.innerHTML='<div class="md"><button class="x" data-x aria-label="Fechar">×</button><h3>🔒 Área do administrador</h3><label>Senha</label><input id="sw" type="password" placeholder="Digite a senha" autocomplete="current-password"><p id="er" style="color:#b91c1c;font-size:13px;margin-top:10px"></p><button class="btn" id="go" style="width:100%;justify-content:center;margin-top:8px">Entrar</button></div>';
-  var enter=async()=>{var h=await sha($('sw').value);if(D&&h===D.config.sh){try{sessionStorage.setItem('dd_ok','1')}catch(x){}location.href='admin.html'}else $('er').textContent='Senha incorreta.'};
-  m.onclick=ev=>{var t=ev.target;if(t===m||t.hasAttribute('data-x'))m.close();if(t.id==='go')enter()};
-  m.onkeydown=ev=>{if(ev.key==='Enter'&&ev.target.id==='sw')enter()};
-  m.showModal();$('sw').focus()};
 var slug=n=>n.toLowerCase().normalize('NFD').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
-var dia=()=>new Date().toLocaleDateString('sv-SE').replace(/-/g,'');
-function hit(k){try{if(!D||!D.config.cid||/preview/.test(location.search)||localStorage.getItem('dd_nt'))return;fetch('https://api.counterapi.dev/v1/'+D.config.cid+'/'+k+'/up',{mode:'no-cors',keepalive:true}).catch(()=>{})}catch(e){}}
-function zap(){hit('zap');hit('dz-'+dia())}
-function track(){try{if(sessionStorage.getItem('dd_s'))return;sessionStorage.setItem('dd_s','1');hit('visitas');hit('dv-'+dia());if(!localStorage.getItem('dd_u')){localStorage.setItem('dd_u','1');hit('visitantes')}}catch(e){}}
+var vid=()=>{try{var v=localStorage.getItem('dd_v');if(!v){v=Math.random().toString(36).slice(2)+Date.now().toString(36);localStorage.setItem('dd_v',v)}return v}catch(e){return 'anon'}};
+function ev(t,pd,ob){try{var s=D&&D.config.sb;if(!s||!s.key||/COLE/.test(s.key)||localStorage.getItem('dd_nt'))return;fetch(s.url+'/rest/v1/eventos',{method:'POST',headers:{apikey:s.key,Authorization:'Bearer '+s.key,'Content-Type':'application/json',Prefer:'return=minimal'},body:JSON.stringify({tipo:t,produto:pd||null,visitante:vid(),objetivo:ob||null}),keepalive:true}).catch(()=>{})}catch(e){}}
+function zap(){ev('zap')}
+function track(){try{if(sessionStorage.getItem('dd_s'))return;sessionStorage.setItem('dd_s','1');ev('visita')}catch(e){}}
 document.addEventListener('click',e=>{if(e.target.closest('[data-wa]'))zap()});
+function tab(t){S.tab=t;$('tbs').querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x.dataset.t===t));$('rvb').hidden=t!=='r';S.n=8;render();if(t==='r')ev('revenda')}
+$('tbs').onclick=e=>{var b=e.target.closest('.chip');if(b)tab(b.dataset.t)};
+function sell(){var m=$('md'),O={es:''};
+  m.innerHTML='<div class="md"><button class="x" data-x aria-label="Fechar">×</button><h3>Quero revender o meu iPhone</h3><p style="color:var(--mut);font-size:13px;margin-top:6px">Conte sobre o aparelho. A gente avalia e anuncia para você.</p>'
+   +'<label>Modelo</label><input id="sm" placeholder="Ex.: iPhone 13 Pro"><label>Armazenamento</label><input id="sa" placeholder="Ex.: 128GB"><label>Saúde da bateria (%)</label><input id="sb" type="number" placeholder="Ex.: 89">'
+   +'<label>Estado do aparelho</label><div class="opts" data-g="es">'+['Ótimo','Bom','Com marcas de uso'].map(x=>'<button type="button" class="op" data-v="'+x+'">'+x+'</button>').join('')+'</div>'
+   +'<label>Quanto você quer receber (R$)</label><input id="sv" type="number" placeholder="Ex.: 2500"><label>Seu nome</label><input id="sn" placeholder="Como podemos te chamar?">'
+   +'<p id="er" style="color:#b91c1c;font-size:13px;margin-top:10px"></p><button class="btn" id="go" style="width:100%;justify-content:center;margin-top:8px">Enviar pelo WhatsApp</button></div>';
+  m.onclick=e=>{var t=e.target;if(t===m||t.hasAttribute('data-x'))return m.close();var b=t.closest('.op');
+    if(b){O.es=b.dataset.v;b.parentNode.querySelectorAll('.op').forEach(x=>x.classList.toggle('on',x===b))}
+    if(t.id==='go'){var md=$('sm').value.trim(),n=$('sn').value.trim();if(!md)return $('er').textContent='Informe o modelo do aparelho.';if(!n)return $('er').textContent='Informe seu nome.';
+      var bt=$('sb').value.trim(),vl=parseFloat($('sv').value),L=['💬 *QUERO REVENDER MEU APARELHO — '+D.config.nome+'*','','📱 *Modelo:* '+md,$('sa').value.trim()?'💾 *Armazenamento:* '+$('sa').value.trim():null,bt?'🔋 *Bateria:* '+bt+'%':null,O.es?'✨ *Estado:* '+O.es:null,vl?'💰 *Quero receber:* '+brl(vl):null,'👤 *Nome:* '+n,'','Pode avaliar e anunciar para mim? 🙌'];
+      zap();window.open(wa(L.filter(x=>x!==null).join('\n')),'_blank');m.close()}};
+  m.showModal()}
+$('sell').onclick=sell;
 function pick(b,k){$(b).onclick=e=>{var c=e.target.closest('.chip');if(!c)return;$(b).querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));c.classList.add('on');S[k]=c.dataset.v;S.n=8;render()}}
 pick('cats','cat');pick('conds','c');
 $('q').oninput=e=>{S.q=e.target.value.toLowerCase().trim();S.n=8;render()};
